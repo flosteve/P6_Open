@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}{% include 'default/stylesheets.html.twig' %}{% endblock %}
+
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body class="index-page ">
+        {% block menu %}{% include 'default/menu.html.twig' %}{% endblock %}
+        {% block body %}
+
+            {% block fos_user_content %}{% endblock %}
+
+        {% endblock %}
+        {% block footer %}{% include'default/footer.html.twig' %}{% endblock %}
+        {% block javascripts %}{% include 'default/javascripts.html.twig' %}{% endblock %}
     </body>
 </html>

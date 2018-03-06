@@ -1,0 +1,65 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="page-header header-filter" style="background-image: url({{ asset('img/bg7.jpg') }}); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+                <div class="card card-signup">
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="form">
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Connexion</h4>
+                            <div class="social-line">
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="description text-center">Ou vous préférez</p>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                    </span>
+                                </div>
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" class="form-control" placeholder={{ 'security.login.username'|trans }}  />
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                </div>
+                                <input type="password" id="password" name="_password" required="required" autocomplete="current-password" class="form-control" placeholder={{ 'security.login.password'|trans }} />
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" checked/>
+                                    {{ 'security.login.remember_me'|trans }}
+                                </label>
+                            </div>
+                            <div class="footer text-center">
+                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary btn-round" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
