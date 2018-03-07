@@ -1,7 +1,7 @@
 <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="{{ url('homepage') }}">Material Kit PRO </a>
+            <a class="navbar-brand" href="{{ url('homepage') }}">ALCTJV</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 <span class="navbar-toggler-icon"></span>
@@ -11,97 +11,59 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">build</i> Maintenance
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a href="../sections.html#headers" class="dropdown-item">
+                            <i class="material-icons">dns</i> Headers
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">date_range</i> Planning
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a href="../examples/about-us.html" class="dropdown-item">
+                            <i class="material-icons">account_balance</i> About Us
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="material-icons">settings</i> Administration
+                    </a>
+                    <div class="dropdown-menu dropdown-with-icons">
+                        <a href="{{ url('user_list') }}" class="dropdown-item">
+                            <i class="material-icons"></i> Gestion des Utilisateurs
+                        </a>
+                        <a href="{{ url('task_list') }}" class="dropdown-item">
+                            <i class="material-icons"></i> Gestion des Tâches
+                        </a>
+                    </div>
+                </li>
+                <li class="dropdown nav-item">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="material-icons">face</i>Bonjour {{ app.user.username }}
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="material-icons">face</i>{{ app.user.username }}
                         </a>
                         <div class="dropdown-menu">
-                        {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
+                            {#{% if is_granted('ROLE_SUPER_ADMIN') %}#}
 
-                        {#<a href="{{ path('easyadmin') }}" class="dropdown-item">Backoffice</a>#}
-                        {#<a href="{{ path('add_user_to_slot') }}" class="dropdown-item">Gestion du Programme TPL</a>#}
+                            {#<a href="{{ path('easyadmin') }}" class="dropdown-item">Backoffice</a>#}
+                            {#<a href="{{ path('add_user_to_slot') }}" class="dropdown-item">Gestion du Programme TPL</a>#}
 
-                        {#{% endif %}#}
-                        <a href="{{ path('fos_user_profile_show') }}" class="dropdown-item">Profil</a>
-                        <a href="{{ path('fos_user_profile_edit') }}" class="dropdown-item">Editer ton profil</a>
-                        <a href="{{ path('fos_user_change_password') }}" class="dropdown-item">Modifier ton mot de passe</a>
-                        <a href="{{ path('fos_user_security_logout') }}" class="dropdown-item">Deconnexion</a>
+                            {#{% endif %}#}
+                            <a href="{{ path('fos_user_profile_show') }}" class="dropdown-item">Profil</a>
+                            <a href="{{ path('fos_user_profile_edit') }}" class="dropdown-item">Editer ton profil</a>
+                            <a href="{{ path('fos_user_change_password') }}" class="dropdown-item">Modifier ton mot de passe</a>
+                            <a href="{{ path('fos_user_security_logout') }}" class="dropdown-item">Deconnexion</a>
                         </div>
                     {% else %}
                         <a href="{{ path('fos_user_security_login') }}" class="nav-link">Connexion
                         </a>
 
                     {% endif %}
-                </li>
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">view_day</i> Sections
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../sections.html#headers" class="dropdown-item">
-                            <i class="material-icons">dns</i> Headers
-                        </a>
-                        <a href="../sections.html#features" class="dropdown-item">
-                            <i class="material-icons">build</i> Features
-                        </a>
-                        <a href="../sections.html#blogs" class="dropdown-item">
-                            <i class="material-icons">list</i> Blogs
-                        </a>
-                        <a href="../sections.html#teams" class="dropdown-item">
-                            <i class="material-icons">people</i> Teams
-                        </a>
-                        <a href="../sections.html#projects" class="dropdown-item">
-                            <i class="material-icons">assignment</i> Projects
-                        </a>
-                        <a href="../sections.html#pricing" class="dropdown-item">
-                            <i class="material-icons">monetization_on</i> Pricing
-                        </a>
-                        <a href="../sections.html#testimonials" class="dropdown-item">
-                            <i class="material-icons">chat</i> Testimonials
-                        </a>
-                        <a href="../sections.html#contactus" class="dropdown-item">
-                            <i class="material-icons">call</i> Contacts
-                        </a>
-                    </div>
-                </li>
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">view_carousel</i> Examples
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../examples/about-us.html" class="dropdown-item">
-                            <i class="material-icons">account_balance</i> About Us
-                        </a>
-                        <a href="../examples/blog-post.html" class="dropdown-item">
-                            <i class="material-icons">art_track</i> Blog Post
-                        </a>
-                        <a href="../examples/blog-posts.html" class="dropdown-item">
-                            <i class="material-icons">view_quilt</i> Blog Posts
-                        </a>
-                        <a href="../examples/contact-us.html" class="dropdown-item">
-                            <i class="material-icons">location_on</i> Contact Us
-                        </a>
-                        <a href="../examples/landing-page.html" class="dropdown-item">
-                            <i class="material-icons">view_day</i> Landing Page
-                        </a>
-                        <a href="../examples/login-page.html" class="dropdown-item">
-                            <i class="material-icons">fingerprint</i> Login Page
-                        </a>
-                        <a href="../examples/pricing.html" class="dropdown-item">
-                            <i class="material-icons">attach_money</i> Pricing Page
-                        </a>
-                        <a href="../examples/ecommerce.html" class="dropdown-item">
-                            <i class="material-icons">store</i> Ecommerce Page
-                        </a>
-                        <a href="../examples/product-page.html" class="dropdown-item">
-                            <i class="material-icons">shopping_cart</i> Product Page
-                        </a>
-                        <a href="../examples/profile-page.html" class="dropdown-item">
-                            <i class="material-icons">account_circle</i> Profile Page
-                        </a>
-                        <a href="../examples/signup-page.html" class="dropdown-item">
-                            <i class="material-icons">person_add</i> Signup Page
-                        </a>
-                    </div>
                 </li>
             </ul>
         </div>

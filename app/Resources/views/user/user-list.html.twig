@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Gestion des Utilisateurs</h1>
+                        <h3>Liste</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="container">
+                {% include 'default/flash.html.twig' %}
+                <div class="title">
+                    <h2>Liste des Utilisateurs</h2>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Congrégation</th>
+                        <th>Role</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td class="text-center">{{ user.id }}</td>
+                        <td>{{ user.username | upper }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.congregation }}</td>
+                        <td>{% for role in user.roles %}{{ role }}, {% endfor %}</td>
+                        <td class="td-actions text-right">
+                            <a href="{{ url('user_show', {user: user.id}) }}" type="button" class="btn btn-info"><i class="material-icons">person</i></a>
+                            <a href="{{ url('user_edit', {user: user.id}) }}" type="button" class="btn btn-success"><i class="material-icons">edit</i></a>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">close</i>
+                            </button>
+                            {#<a href="{{ url('user_delete', {user: user.id}) }}" type="button" class="btn btn-danger"><i class="material-icons">close</i></a>#}
+                        </td>
+                    </tr>
+                        {% include 'modal/confirmation-delete-user.html.twig' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

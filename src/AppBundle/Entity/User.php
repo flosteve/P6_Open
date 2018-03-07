@@ -25,6 +25,17 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $congregation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Task", inversedBy="users", cascade={"persist"})
+     */
+    private $task;
+
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -32,5 +43,20 @@ class User extends BaseUser
         return $this->id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCongregation()
+    {
+        return $this->congregation;
+    }
+
+    /**
+     * @param mixed $congregation
+     */
+    public function setCongregation($congregation)
+    {
+        $this->congregation = $congregation;
+    }
 
 }
