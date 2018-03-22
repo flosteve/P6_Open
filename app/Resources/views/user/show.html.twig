@@ -32,7 +32,11 @@
                                 <h4 class="card-text"><strong>Email:</strong> {{ user.email }}</h4>
                                 <h4 class="card-text"><strong>Congregation: </strong>{{ user.congregation }}</h4>
                                 <h4 class="card-text"><strong>Telephone: </strong></h4>
-                                <a href="{{ url('user_edit', {user: user.id}) }}" class="btn btn-primary">Modifier cet utilisateur</a>
+                                <div>
+                                    <a href="{{ url('user_edit', {user: user.id}) }}" class="btn btn-primary">Modifier cet utilisateur</a>
+                                    <a href="{{ url('user_list') }}" class="btn btn-warning">Retour à la liste</a>
+                                </div>
+
                             </div>
                         </div>
                     </div>

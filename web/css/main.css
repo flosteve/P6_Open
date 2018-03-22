@@ -1,0 +1,21 @@
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom { top: 26px !important; }
+
+.bootstrap-select {
+    margin-left: 15px;
+}
+
+.bs-placeholder > .pull-left, [data-id="fos_user_profile_form_gender"] > .pull-left {
+
+    padding-left: 15px;
+}
+
+/**
+Dashboard
+ **/
+.first-row {
+    padding-top: 20px;
+}
+
+#dashbord-header{
+    max-height: 350px;
+}

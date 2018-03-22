@@ -9,18 +9,14 @@
                 <div class="col-md-8 ml-auto mr-auto">
                     <div class="card card-nav-tabs">
                         <div class="card-header card-header-warning">
-                           Confirmation Enregistrement
+                           Confirmation Email
                         </div>
                         <div class="card-body">
                             <h4 class="card-title"><i class="material-icons">whatshot</i> {{ user.username }}
                             </h4>
-                            <p class="card-text">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-                            <p>
-                            {% if targetUrl %}
-                                    <a href="{{ targetUrl }}" class="card-link">{{ 'registration.back'|trans }}</a>
-                            {% endif %}
-                                <a href="{{ url('fos_user_profile_show') }}" class="card-link">Voir mon Profil</a>
-                            </p>
+                            <p class="card-text">Félicitation {{ user.username }}! Ton compte est activé.<br>Tu peux maintenant consulter ton
+                                <a href="{{ path('dashboard', {user: user.id}) }}"><strong>Tableau de bord</strong></a></p>
+
                         </div>
 
                     </div>

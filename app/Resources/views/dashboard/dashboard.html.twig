@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="page-header header-filter" id="dashbord-header" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Tableau de Bord</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <h2 class="title first-row">Bienvenue {{ user.username }}!</h2>
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        {#Infos de profil#}
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-primary">
+                                Informations de profil
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-text"><strong>Email:</strong> {{ user.email }}</h4>
+                                <h4 class="card-text"><strong>Congregation: </strong>{{ user.congregation.name }}</h4>
+                                <h4 class="card-text"><strong>Telephone: </strong>{{ user.phoneNumber|phone_number_format('NATIONAL') }}</h4>
+                                <div>
+                                    <a href="{{ url('fos_user_profile_edit') }}" class="btn btn-primary">Modifier mon profil</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {#Prochains évènements#}
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-info">
+                                Mes prochains évènements
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-warning">
+                                Mes prochaines interventions
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-danger">
+                                Mes prochaines participations
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

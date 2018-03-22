@@ -24,8 +24,8 @@ security:
                 provider: fos_userbundle
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check
-                default_target_path: fos_user_profile_show
-                failure_path: homepage
+                default_target_path: dashboard
+                failure_path: dashboard
                 csrf_token_generator: security.csrf.token_manager
             logout: true
 #               path:       fos_user_security_logout

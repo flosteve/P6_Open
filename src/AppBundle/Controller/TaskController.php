@@ -45,6 +45,8 @@ class TaskController extends Controller
             $entityManager->persist($task);
             $entityManager->flush();
 
+            $this->addFlash('success', 'La tâche a bien été rajoutée');
+
             return $this->redirectToRoute('task_list');
         }
 
@@ -75,14 +77,14 @@ class TaskController extends Controller
      */
     public function editAction(Task $task, EntityManagerInterface $entityManager, Request $request)
     {
-        $form = $this->createForm(EditUserProfileType::class, $task);
+        $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
         if ($form->isValid() && $form->isSubmitted())
         {
             $entityManager->flush();
-            $this->addFlash('success','L\'utilisateur a été supprimé avec succès');
-            return $this->redirectToRoute('user_list');
+            $this->addFlash('success','La Tâche a été modifiée avec succès');
+            return $this->redirectToRoute('task_list');
         }
 
         return $this->render('task/edit.html.twig', [
@@ -100,13 +102,13 @@ class TaskController extends Controller
      */
     public function deleteAction(Task $task, EntityManagerInterface $entityManager)
     {
-        $deletedUser = $entityManager->getRepository(User::class)->find($task->getId());
-        $entityManager->remove($deletedUser);
+        $deletedTask = $entityManager->getRepository(Task::class)->find($task->getId());
+        $entityManager->remove($deletedTask);
         $entityManager->flush();
 
-        $this->addFlash('success','L\'utilisateur a été supprimé avec succès');
+        $this->addFlash('success','La tâche a été supprimée avec succès');
 
-        return $this->redirectToRoute('user_list');
+        return $this->redirectToRoute('task_list');
     }
 
 }

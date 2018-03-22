@@ -54,7 +54,7 @@ class UserController extends Controller
         if ($form->isValid() && $form->isSubmitted())
         {
             $entityManager->flush();
-            $this->addFlash('success','L\'utilisateur a été supprimé avec succès');
+            $this->addFlash('success','L\'utilisateur a été modifié avec succès');
             return $this->redirectToRoute('user_list');
         }
 
@@ -80,6 +80,18 @@ class UserController extends Controller
         $this->addFlash('success','L\'utilisateur a été supprimé avec succès');
 
         return $this->redirectToRoute('user_list');
+    }
+
+    /**
+     * @param User $user
+     *
+     * @Route("user/dashboard/{user}", name="dashboard")
+     */
+    public function dashboardUser(User $user)
+    {
+        return $this->render('dashboard/dashboard.html.twig', [
+            'user' => $user
+        ]);
     }
 
 }

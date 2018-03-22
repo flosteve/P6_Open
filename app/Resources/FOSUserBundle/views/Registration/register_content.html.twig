@@ -5,61 +5,11 @@
         <div class="row">
             <div class="col-md-10 ml-auto mr-auto">
                 <div class="card card-signup">
-                    <h2 class="card-title text-center">Inscription</h2>
+                    <h2 class="card-title text-center"><i class="material-icons">subscriptions</i> Inscription</h2>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-5 ml-auto">
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-rose">
-                                        <i class="material-icons">timeline</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title">Marketing</h4>
-                                        <p class="description">
-                                            We've created the marketing campaign of the website. It was a very interesting collaboration.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-primary">
-                                        <i class="material-icons">code</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title">Fully Coded in HTML5</h4>
-                                        <p class="description">
-                                            We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="info info-horizontal">
-                                    <div class="icon icon-info">
-                                        <i class="material-icons">group</i>
-                                    </div>
-                                    <div class="description">
-                                        <h4 class="info-title">Built Audience</h4>
-                                        <p class="description">
-                                            There is also a Fully Customizable CMS Admin Dashboard for this product.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5 mr-auto">
-                                <div class="social text-center">
-                                    <button class="btn btn-just-icon btn-round btn-twitter">
-                                        <i class="fa fa-twitter"></i>
-                                    </button>
-                                    <button class="btn btn-just-icon btn-round btn-dribbble">
-                                        <i class="fa fa-dribbble"></i>
-                                    </button>
-                                    <button class="btn btn-just-icon btn-round btn-facebook">
-                                        <i class="fa fa-facebook"> </i>
-                                    </button>
-                                    <h4> ou bien vous préférez </h4>
-                                </div>
+                            <div class="col mr-auto">
                                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-                                    {#{{ form_widget(form) }}#}
-
-
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
@@ -81,6 +31,50 @@
                                             {#<input type="text" class="form-control" placeholder="Email...">#}
                                             {{ form_errors(form.email) }}
                                             {{ form_widget(form.email, {'attr':{'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">phonelink_ring</i>
+                                                        </span>
+                                            </div>
+                                            {{ form_errors(form.phoneNumber) }}
+                                            {{ form_widget(form.phoneNumber) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">confirmation_number</i>
+                                                    </span>
+                                            </div>
+                                            {{ form_errors(form.invitation) }}
+                                            {{ form_widget(form.invitation) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">group</i>
+                                                        </span>
+                                            </div>
+                                            {{ form_errors(form.congregation) }}
+                                            {{ form_widget(form.congregation) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="material-icons">wc</i>
+                                                            </span>
+                                            </div>
+                                            {{ form_errors(form.gender) }}
+                                            {{ form_widget(form.gender) }}
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -109,7 +103,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary btn-round" />
+                                        <input type="submit" value="{{ 'Inscription'|trans }}" class="btn btn-primary btn-round" />
                                     </div>
 
                                     {{ form_end(form) }}
@@ -120,40 +114,5 @@
             </div>
         </div>
     </div>
-    <footer class="footer ">
-        <div class="container">
-            <nav class="pull-left">
-                <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.creative-tim.com/license">
-                            Licenses
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright pull-right">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-                </script>, made with <i class="material-icons">favorite</i> by
-                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-            </div>
-        </div>
-    </footer>
 </div>
 

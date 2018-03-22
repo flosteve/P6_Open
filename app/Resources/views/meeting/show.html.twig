@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Détail de l'évènement</h1>
+                        <h3>Détail</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="name">
+                                <h3 class="title">{{ meeting.name }}</h3><br>
+                            </div>
+                        </div>
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-primary">
+                                Informations
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-text"><strong>Salle:</strong> {{ meeting.room.name }}</h4>
+                                <h4 class="card-text"><strong>Débute le: </strong>{{ meeting.startAt | date('d/m/Y à H:i') }}</h4>
+                                <h4 class="card-text"><strong>Fini le: </strong>{{ meeting.endAt | date('d/m/Y à H:i') }}</h4>
+                                <div>
+                                    <a href="{{ url('meeting_edit', {meeting: meeting.id}) }}" class="btn btn-primary">Modifier cet évènement</a>
+                                    <a href="{{ url('meeting_list', {type: 'table'}) }}" class="btn btn-warning">Retour à la liste</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

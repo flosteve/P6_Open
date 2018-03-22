@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/fullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Gestion des Evènements</h1>
+                        <h3>Liste</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="container">
+                {% include 'default/flash.html.twig' %}
+                <div class="title">
+                    <div class="row">
+                        <h2 class="col title">Liste des Evènements</h2>
+                        <a href="{{ url('meeting_add') }}" class="btn btn-fab btn-primary btn-round" rel="tooltip" title="Ajouter un évènement"> <i class="material-icons">add</i></a>
+
+                        <a href="{{ url('meeting_list', {type: type == 'table'? 'calendar': 'table'}) }}" class="btn btn-fab btn-success btn-round" rel="tooltip" title="Voir le calendrier"> <i class="material-icons">{{ type == 'table'? 'date_range': 'list' }}</i></a>
+
+                    </div>
+                </div>
+                {% if type == 'table' %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Nom</th>
+                        <th>Salle</th>
+                        <th>Débute le</th>
+                        <th>Fini le</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for meeting in meetings %}
+                        <tr>
+                            <td class="text-center">{{ meeting.id }}</td>
+                            <td>{{ meeting.name | upper }}</td>
+                            <td>{{ meeting.room.name   }}</td>
+                            <td>{{ meeting.startAt | date('d/m/Y à H:i') }}</td>
+                            <td>{{ meeting.endAt | date('d/m/Y à H:i') }}</td>
+                            <td class="td-actions text-right">
+                                <a href="{{ url('meeting_show', {meeting: meeting.id}) }}" type="button" class="btn btn-info"><i class="material-icons">search</i></a>
+                                <a href="{{ url('meeting_edit', {meeting: meeting.id}) }}" type="button" class="btn btn-success"><i class="material-icons">edit</i></a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#meetingDeletion"><i class="material-icons">close</i>
+                                </button>
+
+                            </td>
+                        </tr>
+                        {% include 'modal/confirmation-delete-meeting.html.twig' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% elseif type == 'calendar' %}
+            <div class="container">
+                <h2 class="title">Vue sur calendrier</h2>
+                {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+{% endblock %}

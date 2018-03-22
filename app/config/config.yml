@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -38,6 +39,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -48,6 +50,8 @@ doctrine:
         user: '%database_user%'
         password: '%database_password%'
         charset: UTF8
+        types:
+            phone_number: Misd\PhoneNumberBundle\Doctrine\DBAL\Types\PhoneNumberType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
@@ -78,10 +82,21 @@ fos_user:
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift
 
-#    registration:
-#        form:
-#            type: App\Form\RegistrationType
-#    profile:
-#        form:
-#            type: App\Form\EditProfileType
+    registration:
+        confirmation:
+            enabled: false
+            template: Email/registration-confirmation.html.twig
+        form:
+           type: AppBundle\Form\RegistrationType
+    profile:
+        form:
+            type: AppBundle\Form\ProfileType
 
+#Doctrine migration
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/DoctrineMigrations"
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+    organize_migrations: false # Version >= 1.2, possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
+    custom_template: ~

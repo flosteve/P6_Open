@@ -14,20 +14,8 @@
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                         {% endif %}
                         <div class="card-header card-header-primary text-center">
-                            <h4 class="card-title">Connexion</h4>
-                            <div class="social-line">
-                                <a href="#pablo" class="btn btn-just-icon btn-link">
-                                    <i class="fa fa-facebook-square"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-just-icon btn-link">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </div>
+                            <h4 class="card-title">Connecte Toi!</h4>
                         </div>
-                        <p class="description text-center">Ou vous préférez</p>
                         <div class="card-body">
                             <div class="input-group">
                                 <div class="input-group-prepend">
@@ -54,8 +42,9 @@
                                 </label>
                             </div>
                             <div class="footer text-center">
-                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary btn-round" />
+                                <input type="submit" id="_submit" name="_submit" value="{{ 'Connexion'|trans }}" class="btn btn-primary btn-round" />
                             </div>
+                            <p class="text-center">Vous n'êtes pas encore inscrit?<a href="{{ path('fos_user_registration_register')}}"> C'est par Ici!</a></p>
                         </div>
                     </form>
                 </div>

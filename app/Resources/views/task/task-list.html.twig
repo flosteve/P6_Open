@@ -31,19 +31,27 @@
                         <th>Descriptif</th>
                         <th>Fréquence</th>
                         <th>Date D'intervention</th>
+                        <th>Volontaires</th>
                         <th class="text-right">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for task in tasks %}
                         <tr>
-                            <td class="text-center">{{ user.id }}</td>
+                            <td class="text-center">{{ task.id }}</td>
                             <td>{{ task.name | upper }}</td>
                             <td>{{ task.description }}</td>
                             <td>{{ task.frequence }}</td>
                             <td>{{ task.nextDate | date('d/m/Y') }}</td>
+                            <td>
+                                <ul class="list-group">
+                                    {% for user in task.users %}
+                                        <li class="list-group-item">{{ user.username }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
                             <td class="td-actions text-right">
-                                <a href="{{ url('task_show', {task: task.id}) }}" type="button" class="btn btn-info"><i class="material-icons">person</i></a>
+                                <a href="{{ url('task_show', {task: task.id}) }}" type="button" class="btn btn-info"><i class="material-icons">search</i></a>
                                 <a href="{{ url('task_edit', {task: task.id}) }}" type="button" class="btn btn-success"><i class="material-icons">edit</i></a>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#taskDeletion"><i class="material-icons">close</i>
                                 </button>

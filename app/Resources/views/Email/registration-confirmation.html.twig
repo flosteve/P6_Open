@@ -1,0 +1,15 @@
+{% block subject %}Confirmation d'inscription{% endblock %}
+
+{% block body_text %}
+    {% autoescape false %}
+        Bonjour {{ user.username }} !
+
+        Pour confirmer ton inscription, clique sur le lien suivant s'il te plait: {{ confirmationUrl }}
+
+        Merci,
+        ALCTJV
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+{% endblock %}

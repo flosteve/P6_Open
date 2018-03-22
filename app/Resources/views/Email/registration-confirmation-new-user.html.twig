@@ -1,0 +1,23 @@
+{% block subject %}Confirmation d'inscription{% endblock %}
+
+{% block body_text %}
+    {% autoescape false %}
+        Salut!
+
+        Un Nouvel Utilisateur ({{ user.username }} s'est inscris. Pour valider son inscription, veuille te rendre sur ton interface d'administration.
+
+        Merci,
+        ALCTJV
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+   <div class="container">
+       <div class="row">
+           <p> Bonjour!</p>
+           <p>Un Nouvel Utilisateur ({{ user.username }} s'est inscris. Pour valider son inscription, veuille te rendre sur ton interface d'administration.</p>
+           <p>Merci,
+               ALCTJV</p>
+       </div>
+   </div>
+{% endblock %}
