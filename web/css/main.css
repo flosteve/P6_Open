@@ -19,3 +19,16 @@ Dashboard
 #dashbord-header{
     max-height: 350px;
 }
+
+.main-panel .header{
+    width: 100%;
+}
+
+.profile_info{
+    list-style: none;
+}
+
+body > div.wrapper > div.main-panel > div > div > div:nth-child(3) > div > div.row > div.row.justify-content-sm-between.col-md-12 > div:nth-child(2) > form{
+    margin-top: 45px;
+    margin-bottom: 0;
+}

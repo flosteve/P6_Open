@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class MeetingController extends Controller
 {
     /**
-     * Affiche la liste des eevènements
+     * Affiche la liste des évènements
      * @Route("meeting/list/{type}", name="meeting_list")
      */
     public function listAction(Request $request, EntityManagerInterface $entityManager, $type)

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace UserBundle\Controller;
+namespace AppBundle\Controller;
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
@@ -18,6 +18,7 @@ use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,25 +36,27 @@ class ProfileController extends BaseController
     private $formFactory;
     private $userManager;
 
+
     /**
      * ProfileController constructor.
      * @param EventDispatcherInterface $eventDispatcher
-     * @param FactoryInterface $formFactory
      * @param UserManagerInterface $userManager
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher, FactoryInterface $formFactory, UserManagerInterface $userManager)
+    public function __construct(EventDispatcherInterface $eventDispatcher, UserManagerInterface $userManager)
     {
-        parent::__construct($eventDispatcher, $formFactory, $userManager);
+        $formFactory = $this->container->get('fos_user.registration.form.factory');
+//        parent::__construct($eventDispatcher, $formFactory, $userManager);
         $this->eventDispatcher = $eventDispatcher;
         $this->formFactory = $formFactory;
         $this->userManager = $userManager;
     }
+
     /**
      * Edit the user.
      *
      * @param Request $request
-     *
      * @return Response
+     * @Route("/profile/edit/{user}", name="edit_profile")
      */
     public function editAction(Request $request)
     {
@@ -90,8 +93,10 @@ class ProfileController extends BaseController
             return $response;
         }
 
+        dump($user);
         return $this->render('@FOSUser/Profile/edit.html.twig', array(
             'form' => $form->createView(),
+            'user' => $user
         ));
     }
 }

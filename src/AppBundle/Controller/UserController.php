@@ -82,16 +82,4 @@ class UserController extends Controller
         return $this->redirectToRoute('user_list');
     }
 
-    /**
-     * @param User $user
-     *
-     * @Route("user/dashboard/{user}", name="dashboard")
-     */
-    public function dashboardUser(User $user)
-    {
-        return $this->render('dashboard/dashboard.html.twig', [
-            'user' => $user
-        ]);
-    }
-
 }

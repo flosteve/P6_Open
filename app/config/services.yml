@@ -55,6 +55,10 @@ services:
         arguments: ['@doctrine.orm.entity_manager']
         public: false
 
+    app.profile.edit:
+        class: AppBundle\Controller\ProfileController
+
+
 
 
 #    user.registration.disable:

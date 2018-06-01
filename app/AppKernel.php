@@ -22,7 +22,8 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Misd\PhoneNumberBundle\MisdPhoneNumberBundle()
+            new Misd\PhoneNumberBundle\MisdPhoneNumberBundle(),
+            new Fungio\GoogleCalendarBundle\FungioGoogleCalendarBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

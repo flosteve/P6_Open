@@ -37,7 +37,7 @@
                         <td class="text-center">{{ user.id }}</td>
                         <td>{{ user.username | upper }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.congregation }}</td>
+                        <td>{{ user.congregation.name }}</td>
                         <td>{% for role in user.roles %}{{ role }}, {% endfor %}</td>
                         <td class="td-actions text-right">
                             <a href="{{ url('user_show', {user: user.id}) }}" type="button" class="btn btn-info"><i class="material-icons">person</i></a>

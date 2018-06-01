@@ -100,3 +100,10 @@ doctrine_migrations:
     name: Application Migrations
     organize_migrations: false # Version >= 1.2, possible values are: "BY_YEAR", "BY_YEAR_AND_MONTH", false
     custom_template: ~
+
+#fungio Google Calendar
+fungio_google_calendar:
+    google_calendar:
+        application_name: "Google Calendar"
+        credentials_path: "%kernel.root_dir%/.credentials/calendar.json"
+        client_secret_path: "%kernel.root_dir%/Resources/GoogleCalendarBundle/client_id.json"
