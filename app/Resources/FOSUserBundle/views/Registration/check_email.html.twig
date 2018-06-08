@@ -1,0 +1,22 @@
+{% extends 'base-register.html.twig' %}
+
+
+{% block fos_user_content %}
+    <div class="page-header header-filter" filter-color="purple" style="background-image: url({{ asset('img/bg7.jpg') }}); background-size: cover; background-position: top center;">
+        <div class="container">
+            <div class="row">
+                <div class="card card-nav-tabs">
+                    <div class="info">
+                        <div class="icon icon-success">
+                            <i class="material-icons">sentiment_very_satisfied</i>
+                        </div>
+                        <h4 class="info-title">Bienvenue {{ user.username }}</h4>
+                        <p>Un email a été envoyé à l'adresse suivante: {{ user.email }}. Il contient un lien d'activation pour confirmer ton adresse email</p>
+                        <p>A tout à l'heure!</p>
+                        <a href="{{ path('fos_user_security_login') }}">Page de Connexion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}

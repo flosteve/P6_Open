@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Détail de la Tâche</h1>
+                        <h3>Détail</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="name">
+                                <h3 class="title">{{ task.name }}</h3><br>
+                            </div>
+                        </div>
+                        <div class="card card-nav-tabs text-center">
+                            <div class="card-header card-header-primary">
+                                Informations
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-text"><strong>Descriptif:</strong> {{ task.description }}</h4>
+                                <h4 class="card-text"><strong>Fréquence: </strong>{{ task.frequence }}</h4>
+                                <h4 class="card-text"><strong>Prochaine Intervention: </strong>{{ task.nextDate | date('d/m/Y') }}</h4>
+                               <h4><strong>Volontaires: </strong></h4>
+                                    <ul class="list-group list-group-flush">
+                                        {% for user in task.users %}
+                                            <li class="list-group-item">{{ user.username }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                <div>
+                                    <a href="{{ url('task_edit', {task: task.id}) }}" class="btn btn-primary">Modifier cette tâche</a>
+                                    <a href="{{ url('task_list') }}" class="btn btn-warning">Retour à la liste</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{  parent()  }} - Tableau de Bord {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="header text-center">
+            <h2 class="title">Planning d'Occupation des Salles</h2>
+        </div>
+        <div class="col-md-11 ml-auto mr-auto">
+            <div class="card card-calendar">
+                <div class="card-body ">
+                    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventModal">
+        Launch demo modal
+    </button>
+
+
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ajout d'un Evènement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col mr-auto">
+                        <form action="path('fos_user_registration_register')" method="post">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'évènement">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <!-- input with datetimepicker -->
+                            <div class="form-group">
+                                <input type="text" class="form-control datetimepicker" value="28/05/2018" placeholder="Date de début"/>
+                            </div>
+                            <!-- input with datetimepicker -->
+                            <div class="form-group">
+                                <input type="text" class="form-control datetimepicker" value="28/05/2018" placeholder="Date de Fin"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Fréquence</label>
+                                <select class="form-control" id="frequency">
+                                    <option>Tous les Jours</option>
+                                    <option>Toutes les semaines</option>
+                                    <option>Toutes les 2 semaines</option>
+                                    <option>Tous les mois</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Congrégation</label>
+                                <select class="form-control" id="congregation">
+                                    <option>Paris Anglaise Orly</option>
+                                    <option>Villejuif</option>
+                                    <option>Thiais</option>
+                                    <option>Chevilly-Larue</option>
+                                    <option>Vitry-Sud</option>
+                                    <option>Créteil Lingala</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" value="{{ 'Ajouter'|trans }}" class="btn btn-success btn-round" />
+                                <input type="button" value="{{ 'Supprimer'|trans }}" class="btn btn-danger btn-round" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+    <script type="application/javascript">
+
+    </script>
+{% endblock %}
+

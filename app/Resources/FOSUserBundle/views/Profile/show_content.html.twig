@@ -1,0 +1,26 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{#<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{ asset('img/kit/free/city.jpg') }}');"></div>#}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-nav-tabs text-center">
+                <div class="card-header card-header-primary">
+                    {{ user.username }}
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Informations Personnelles</h4>
+                    <p class="card-text">
+                        <ul class="profile_info">
+                        <li><strong>Email:</strong> {{ user.email }}</li>
+                        <li><strong>Telephone:</strong> {{ user.phoneNumber |phone_number_format('NATIONAL')}}</li>
+                        <li><strong>Congrégation:</strong> {{ user.congregation.name }}</li>
+                    </ul>
+                    </p>
+                    <a href="{{ url('fos_user_profile_edit') }}" class="btn btn-primary">Editer Mon Profil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

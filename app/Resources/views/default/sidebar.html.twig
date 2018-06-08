@@ -1,0 +1,135 @@
+<div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo">
+        <a href="{{ path('dashboard')}}" class="simple-text logo-normal">
+            ALCTJV
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+                <img src="{{ asset('img/default-avatar.png') }}" />
+            </div>
+            <div class="user-info">
+                <a data-toggle="collapse" href="#collapseExample" class="username">
+              <span>
+                {{ app.user.username }}
+                <b class="caret"></b>
+              </span>
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('fos_user_profile_show') }}">
+                                <span class="sidebar-mini"> MP </span>
+                                <span class="sidebar-normal"> Mon Profil </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('fos_user_profile_edit') }}">
+                                <span class="sidebar-mini"> MP </span>
+                                <span class="sidebar-normal"> Modifier mon Profil </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('fos_user_change_password') }}">
+                                <span class="sidebar-mini"> CMP </span>
+                                <span class="sidebar-normal"> Changement de Mot de Passe </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('fos_user_security_logout') }}">
+                                <span class="sidebar-mini"> D </span>
+                                <span class="sidebar-normal"> Déconnexion </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav">
+            <li class="nav-item active ">
+                <a class="nav-link" href="{{ path('dashboard') }}">
+                    <i class="material-icons">dashboard</i>
+                    <p> Tableau de Bord </p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#salles">
+                    <i class="material-icons">image</i>
+                    <p> Occupation des salles
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="salles">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('occupation_dashboard') }}">
+                                <span class="sidebar-mini"> GS </span>
+                                <span class="sidebar-normal"> Gestion des Salles </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ path('events_dashboard') }}">
+                                <span class="sidebar-mini"> GE </span>
+                                <span class="sidebar-normal"> Gestion des Evènements </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">
+                                <span class="sidebar-mini"> GR </span>
+                                <span class="sidebar-normal"> Gestion de mes Réservations </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#maintenance">
+                    <i class="material-icons">apps</i>
+                    <p> Maintenance
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" id="maintenance">
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">
+                                <span class="sidebar-mini"> GT </span>
+                                <span class="sidebar-normal"> Gestion des Tâches </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">
+                                <span class="sidebar-mini"> AV </span>
+                                <span class="sidebar-normal"> Attribution Volontaires </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">
+                                <span class="sidebar-mini"> GI </span>
+                                <span class="sidebar-normal"> Gestion de mes Interventions </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#">
+                    <i class="material-icons">content_paste</i>
+                    <p> Gestion des Utilisateurs</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#">
+                    <i class="material-icons">grid_on</i>
+                    <p> Contact</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

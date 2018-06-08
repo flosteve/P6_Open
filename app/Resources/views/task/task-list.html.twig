@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Gestion des Tâches</h1>
+                        <h3>Liste</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="container">
+                {% include 'default/flash.html.twig' %}
+                <div class="title">
+                    <div class="row">
+                        <h2 class="col">Liste des Tâches</h2>
+                        <a href="{{ url('task_add') }}" class="btn btn-fab btn-primary btn-round" rel="tooltip" title="Ajouter une tâche"> <i class="material-icons">add</i></a>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Nom</th>
+                        <th>Descriptif</th>
+                        <th>Fréquence</th>
+                        <th>Date D'intervention</th>
+                        <th>Volontaires</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td class="text-center">{{ task.id }}</td>
+                            <td>{{ task.name | upper }}</td>
+                            <td>{{ task.description }}</td>
+                            <td>{{ task.frequence }}</td>
+                            <td>{{ task.nextDate | date('d/m/Y') }}</td>
+                            <td>
+                                <ul class="list-group">
+                                    {% for user in task.users %}
+                                        <li class="list-group-item">{{ user.username }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td class="td-actions text-right">
+                                <a href="{{ url('task_show', {task: task.id}) }}" type="button" class="btn btn-info"><i class="material-icons">search</i></a>
+                                <a href="{{ url('task_edit', {task: task.id}) }}" type="button" class="btn btn-success"><i class="material-icons">edit</i></a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#taskDeletion"><i class="material-icons">close</i>
+                                </button>
+
+                            </td>
+                        </tr>
+                        {% include 'modal/confirmation-delete-task.html.twig' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

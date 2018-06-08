@@ -1,0 +1,34 @@
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom { top: 26px !important; }
+
+.bootstrap-select {
+    margin-left: 15px;
+}
+
+.bs-placeholder > .pull-left, [data-id="fos_user_profile_form_gender"] > .pull-left {
+
+    padding-left: 15px;
+}
+
+/**
+Dashboard
+ **/
+.first-row {
+    padding-top: 20px;
+}
+
+#dashbord-header{
+    max-height: 350px;
+}
+
+.main-panel .header{
+    width: 100%;
+}
+
+.profile_info{
+    list-style: none;
+}
+
+body > div.wrapper > div.main-panel > div > div > div:nth-child(3) > div > div.row > div.row.justify-content-sm-between.col-md-12 > div:nth-child(2) > form{
+    margin-top: 45px;
+    margin-bottom: 0;
+}

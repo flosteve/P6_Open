@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('{{ asset('img/list.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Edition Profil</h1>
+                        <h3>Edition</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="container">
+                <div class="title">
+                    <h2>Modification Profil de {{ user.username }}</h2>
+                </div>
+                {{ form_start(form) }}
+
+                    <div class="form-group">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, {'attr':{'class': 'form-control', 'placeholder': 'Email'}}) }}
+                    </div>
+
+
+                    <div class="form-check">
+                        {{ form_label(form.roles) }}
+                        {{ form_errors(form.roles) }}
+                        {{ form_widget(form.roles) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.congregation) }}
+                        {{ form_errors(form.congregation) }}
+                        {{ form_widget(form.congregation, {'attr':{'class': 'form-control', 'placeholder': 'Email'}}) }}
+                    </div>
+
+                    <div class="text-center">
+                        <input type="submit" value="Enregistrer" class="btn btn-primary btn-round" />
+                    </div>
+
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

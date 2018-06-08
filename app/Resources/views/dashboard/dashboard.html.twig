@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{  parent()  }} - Tableau de Bord {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-header card-header-text card-header-warning">
+                    <div class="card-text">
+                        <h4 class="card-title">Mes Prochaines Interventions</h4>
+                        <p class="card-category">Maintenance</p>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                        <th>Tâche à Réaliser</th>
+                        <th>Responsable</th>
+                        <th>Date</th>
+                        <th>Heure de début</th>
+                        <th>Heure de Fin</th>
+                        <th>Edition</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Plomberie</td>
+                            <td>Eraville</td>
+                            <td>Lundi 18 Juin</td>
+                            <td>16h</td>
+                            <td>18h</td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-info">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-success">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Electricité</td>
+                            <td>Steve</td>
+                            <td>Jeudi 21 Juin</td>
+                            <td>10h</td>
+                            <td>12h</td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-info">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-success">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-header card-header-text card-header-success">
+                    <div class="card-text">
+                        <h4 class="card-title">Mes Prochaines Réservations</h4>
+                        <p class="card-category">Réservation de Salle</p>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                        <th>Salle N°</th>
+                        <th>Date</th>
+                        <th>Heure de début</th>
+                        <th>Heure de Fin</th>
+                        <th>Edition</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Lundi 18 Juin</td>
+                            <td>16h</td>
+                            <td>18h</td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-info">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-success">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jeudi 21 Juin</td>
+                            <td>10h</td>
+                            <td>12h</td>
+                            <td class="td-actions text-right">
+                                <button type="button" rel="tooltip" class="btn btn-info">
+                                    <i class="material-icons">person</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-success">
+                                    <i class="material-icons">edit</i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger">
+                                    <i class="material-icons">close</i>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="header text-center">
+            <h2 class="title">Prochains Evènements</h2>
+        </div>
+        <div class="col-md-10 ml-auto mr-auto">
+            <div class="card card-calendar">
+                <div class="card-body ">
+                    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+{% endblock %}
+

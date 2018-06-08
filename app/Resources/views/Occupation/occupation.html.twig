@@ -1,0 +1,226 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{  parent()  }} - Tableau de Bord {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="header text-center">
+            <h2 class="title">Planning d'Occupation des Salles</h2>
+        </div>
+        <div class="col-md-11 ml-auto mr-auto">
+            <div class="card card-calendar">
+                <div class="card-body ">
+                    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="header text-center">
+            <h2 class="title">Gestion des Salles</h2>
+        </div>
+        <div class="col-md-10 col-">
+            <div class="card">
+                <div class="card-header card-header-text card-header-warning">
+                    <div class="card-text">
+                        <h4 class="card-title">Gestion des Salles</h4>
+                        <p class="card-category">Occupation des Salles</p>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>N° Salle</th>
+                            <th>Nombre de place</th>
+                            <th>Edition</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>180</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>160</td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-11 col-md-11">
+            <div class="header text-center">
+                <h2 class="title">Demandes de Réservation</h2>
+            </div>
+            <div class="row">
+                <div class="row justify-content-sm-between col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Nombre de Résultats</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Montrer 10 de 100</option>
+                                <option>Montrer 20 de 100</option>
+                                <option>Montrer 50 de 100</option>
+                                <option>Tout</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <form class="navbar-form">
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" placeholder="Rechercher...">
+                                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-header-text card-header-success">
+                        <div class="card-text">
+                            <h4 class="card-title">Demandes de Réservations en cours</h4>
+                            <p class="card-category">Occupation des Salles</p>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                            <th>Nom du Demandeur</th>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Date de Réservation</th>
+                            <th>N° Salle</th>
+                            <th>Heure de Début</th>
+                            <th>Heure de Fin</th>
+                            <th>Statut</th>
+                            <th>Edition</th>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Eraville Aurélie</td>
+                                <td>eraville.aurelie@gmail.com</td>
+                                <td>0689354639</td>
+                                <td>24/06/2018</td>
+                                <td>2</td>
+                                <td>16H</td>
+                                <td>18H</td>
+                                <td><i class="material-icons">hourglass_full</i></td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eraville Steve</td>
+                                <td>eravillesteve@gmail.com</td>
+                                <td>0683852187</td>
+                                <td>26/06/2018</td>
+                                <td>1</td>
+                                <td>19H</td>
+                                <td>20H</td>
+                                <td><i class="material-icons">check_circle</i></td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Eraville Steve</td>
+                                <td>eravillesteve@gmail.com</td>
+                                <td>0683852187</td>
+                                <td>26/06/2018</td>
+                                <td>1</td>
+                                <td>19H</td>
+                                <td>20H</td>
+                                <td><i class="material-icons">cancel</i></td>
+                                <td class="td-actions text-right">
+                                    <button type="button" rel="tooltip" class="btn btn-info">
+                                        <i class="material-icons">person</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-success">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-danger">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row justify-content-sm-between">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" href="#">Montre 10 de 100 Résultats</a></li>
+                                </ul>
+                            </nav>
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+{% endblock %}
+

@@ -1,0 +1,118 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="page-header register-page header-filter" filter-color="black" style="background-image: url('{{ asset('img/register.jpg') }}'); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 ml-auto mr-auto">
+                <div class="card card-signup">
+                    <h2 class="card-title text-center"><i class="material-icons">subscriptions</i> Inscription</h2>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col mr-auto">
+                                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">face</i>
+                                                    </span>
+                                            </div>
+                                            {{ form_errors(form.username) }}
+                                            {{ form_widget(form.username, {'attr':{'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">mail</i>
+                                                    </span>
+                                            </div>
+                                            {#<input type="text" class="form-control" placeholder="Email...">#}
+                                            {{ form_errors(form.email) }}
+                                            {{ form_widget(form.email, {'attr':{'class': 'form-control', 'placeholder': 'Email'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">phonelink_ring</i>
+                                                        </span>
+                                            </div>
+                                            {{ form_errors(form.phoneNumber) }}
+                                            {{ form_widget(form.phoneNumber) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">confirmation_number</i>
+                                                    </span>
+                                            </div>
+                                            {{ form_errors(form.invitation) }}
+                                            {{ form_widget(form.invitation) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">group</i>
+                                                        </span>
+                                            </div>
+                                            {{ form_errors(form.congregation) }}
+                                            {{ form_widget(form.congregation) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text">
+                                                                <i class="material-icons">wc</i>
+                                                            </span>
+                                            </div>
+                                            {{ form_errors(form.gender) }}
+                                            {{ form_widget(form.gender) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                    </span>
+                                            </div>
+                                            {#<input type="password" placeholder="Password..." class="form-control" />#}
+                                            {{ form_errors(form.plainPassword.first) }}
+                                            {{ form_widget(form.plainPassword.first, {'attr':{'class': 'form-control', 'placeholder': 'Choix du mot de passe'}}) }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="material-icons">lock_outline</i>
+                                                        </span>
+                                            </div>
+                                            {#<input type="password" placeholder="Password..." class="form-control" />#}
+                                            {{ form_errors(form.plainPassword.second) }}
+                                            {{ form_widget(form.plainPassword.second, {'attr':{'class': 'form-control', 'placeholder': 'Confirmation du mot de passe'}}) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <input type="submit" value="{{ 'Inscription'|trans }}" class="btn btn-primary btn-round" />
+                                    </div>
+
+                                    {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

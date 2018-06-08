@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('{{ asset('img/congrats.jpg') }}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="card card-nav-tabs">
+                        <div class="card-header card-header-warning">
+                           Confirmation Email
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="material-icons">whatshot</i> {{ user.username }}
+                            </h4>
+                            <p class="card-text">Félicitation {{ user.username }}! Ton compte est activé.<br>Tu peux maintenant consulter ton
+                                <a href="{{ path('dashboard', {user: user.id}) }}"><strong>Tableau de bord</strong></a></p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock fos_user_content %}

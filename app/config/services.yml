@@ -29,7 +29,40 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    # add more services, or override services that need manual wiring
-    # AppBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'
+    app_bundle.service.listener:
+        class: AppBundle\Listener\LoadDataListener
+        tags:
+        - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadData }
+
+    app.form.registration:
+        class: AppBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+
+    app.form.profile:
+        class: AppBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: app_user_profile }
+
+    app.form.invitation:
+        class: AppBundle\Form\InvitationType
+        arguments: ['@app.form.data_transformer.invitation']
+        tags:
+            - { name: "form.type", alias: "app_invitation_type" }
+
+    app.form.data_transformer.invitation:
+        class: AppBundle\Form\DataTransformer\InvitationToCodeTransformer
+        arguments: ['@doctrine.orm.entity_manager']
+        public: false
+
+    app.profile.edit:
+        class: AppBundle\Controller\ProfileController
+
+
+
+
+#    user.registration.disable:
+#        class: AppBundle\Listener\RegistrationListener
+#        arguments: ['@Doctrine\ORM\EntityManagerInterface', '@Twig\Environment', '@swiftmailer.mailer']
+#        tags:
+#            - {name: kernel.event_subscriber}
