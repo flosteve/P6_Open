@@ -13,13 +13,11 @@ class DashboardController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="dashboard")
+     * @Security("has_role('ROLE_USER')")
      */
     public function dashboardUser()
     {
-        $user = $this->getUser();
-        return $this->render('dashboard/dashboard.html.twig', [
-            'user' => $user
-        ]);
+        return $this->render('dashboard/dashboard.html.twig');
     }
 
 }
